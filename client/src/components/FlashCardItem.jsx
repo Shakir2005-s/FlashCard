@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "./FlashCardItem.css"
 export default function FlashCardItem({
   flashcard,
   updateFlashcard,
@@ -26,7 +26,7 @@ export default function FlashCardItem({
   };
 
   return (
-    <div style={{ border: "1px solid black", padding: "10px", marginTop: "10px" }}>
+    <div className="card">
       {isEditing ? (
         <>
           <input
@@ -39,7 +39,7 @@ export default function FlashCardItem({
             onChange={(e) => setAnswer(e.target.value)}
           />
 
-          <button onClick={handleSave}>
+          <button className="save" onClick={handleSave}>
             Save
           </button>
         </>
@@ -48,11 +48,11 @@ export default function FlashCardItem({
           <h2>{flashcard.question}</h2>
           <p>{flashcard.answer}</p>
 
-          <button onClick={() => setIsEditing(true)}>
+          <button className="edit" onClick={() => setIsEditing(true)}>
             Edit
           </button>
 
-          <button onClick={() => deleteFlashcard(flashcard._id)}>
+          <button className="delete" onClick={() => deleteFlashcard(flashcard._id)}>
             Delete
           </button>
         </>

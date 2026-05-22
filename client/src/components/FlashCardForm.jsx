@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./FlashCardForm.css";
 export default function FlashCardForm({ addFlashcard }) {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
@@ -16,7 +17,7 @@ export default function FlashCardForm({ addFlashcard }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Enter question"

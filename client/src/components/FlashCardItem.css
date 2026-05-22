@@ -1,0 +1,84 @@
+.card {
+  background: #ffffff;
+  width: 420px;
+  margin: 15px auto;
+  padding: 16px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #222;
+}
+
+.card p {
+  margin: 8px 0 15px;
+  color: #555;
+  font-size: 15px;
+}
+
+/* Inputs in edit mode */
+.card input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+.card input:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/* Buttons base */
+.card button {
+  padding: 8px 12px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+/* Edit button */
+.edit {
+  background: #2196f3;
+  color: white;
+}
+
+.edit:hover {
+  background: #1976d2;
+}
+
+/* Delete button */
+.delete {
+  background: #f44336;
+  color: white;
+}
+
+.delete:hover {
+  background: #d32f2f;
+}
+
+/* Save button */
+.save {
+  background: #4caf50;
+  color: white;
+}
+
+.save:hover {
+  background: #45a049;
+}
