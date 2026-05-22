@@ -1,24 +1,20 @@
 📚 Flashcard Full-Stack App
 
-A simple full-stack CRUD application where users can create, view, update, and delete flashcards. The app uses React for the frontend, Express for the backend, and MongoDB for persistent storage.
+A simple full-stack CRUD application where users can create, view, update, and delete flashcards. The app uses React (frontend), Express (backend), and MongoDB (database) for persistent storage.
 
 🚀 Features
 Create flashcards (question + answer)
 View all flashcards
 Edit flashcards in real time
 Delete flashcards
-Persistent data storage using MongoDB
+Persistent storage using MongoDB
 Responsive and clean UI
 🛠️ Tech Stack
-
-Frontend:
-
+Frontend
 React (Vite)
 Axios
 CSS
-
-Backend:
-
+Backend
 Node.js
 Express.js
 MongoDB
@@ -36,10 +32,12 @@ cd <repo-name>
 2. Setup Backend (Server)
 cd server
 npm install
+
 Start backend server:
+
 node index.js
 
-Backend runs at:
+Backend will run at:
 
 http://localhost:8080
 3. Setup Frontend (Client)
@@ -50,7 +48,7 @@ cd client
 npm install
 npm run dev
 
-Frontend runs at:
+Frontend will run at:
 
 http://localhost:5173
 4. MongoDB Setup
@@ -69,32 +67,31 @@ POST	/flashcards	Create flashcard
 PUT	/flashcards/:id	Update flashcard
 DELETE	/flashcards/:id	Delete flashcard
 🧪 How to Use
-Open frontend:
-http://localhost:5173
+Open: http://localhost:5173
 Add a flashcard (question + answer)
 Edit flashcards using Edit button
 Delete flashcards using Delete button
-Data persists even after refresh (MongoDB)
+Refresh page → data persists (MongoDB)
 💾 Persistence
 
-This app uses MongoDB for storage, so all flashcards remain saved even after restarting the server.
+All flashcards are stored in MongoDB, so data remains saved even after restarting the server.
 
 📌 Key Highlights
-Full CRUD implementation
+Full CRUD functionality
 REST API architecture
 React state management
 Component-based UI design
 Persistent backend storage
 ⚠️ Known Limitations
 No authentication system
-No loading or error UI states
-Basic styling (can be improved with Tailwind or UI framework)
+No loading/error UI states
+Basic styling (can be improved)
 🚀 Future Improvements
 Add authentication (login/signup)
+Improve UI using Tailwind CSS
 Add loading and error handling
-Improve UI with Tailwind CSS
-Add flashcard categories/filters
-Deploy frontend and backend
+Add categories/filters
+Deploy frontend & backend
 👨‍💻 Author Notes
 
-This project was built as a full-stack CRUD learning application to demonstrate integration of React, Express, and MongoDB with real-world API communication.
+This project was built as a full-stack learning project to understand integration between React, Express, and MongoDB with real-world CRUD operations.
