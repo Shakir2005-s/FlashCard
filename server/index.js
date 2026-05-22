@@ -40,6 +40,39 @@ app.get("/flashcards", async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+//Update flashcard
+app.put("/flashcards/:id", async (req, res) => {
+    try {
+        const { question, answer } = req.body;
+
+        const updatedCard = await Flashcard.findByIdAndUpdate(
+            req.params.id,
+            { question, answer },
+            { new: true }
+        );
+
+        res.json(updatedCard);
+
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+//Delete flashcard
+app.delete("/flashcards/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        const deletedCard = await Flashcard.findByIdAndDelete(id);
+
+        res.json({
+            message: "Deleted successfully",
+            deletedCard
+        });
+
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
 // Connect DB + Start server
 async function main() {
