@@ -35,6 +35,7 @@ The app uses **React (frontend)**, **Express (backend)**, and **MongoDB (databas
 ## 📁 Project Structure
 
 FlashCard/
+|
 ├── client/        # React frontend  
 ├── server/        # Express backend  
 ├── README.md  
