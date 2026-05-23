@@ -4,7 +4,7 @@ const Flashcard = require("./models/flashcard");
 const cors = require("cors");
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 // Middleware
 app.use(cors());
@@ -76,7 +76,9 @@ app.delete("/flashcards/:id", async (req, res) => {
 
 // Connect DB + Start server
 async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/flashcards");
+    await mongoose.connect(
+        "mongodb+srv://flashcarduser:flashcarduser123@m0freetier.sswpcbg.mongodb.net/flashcards?retryWrites=true&w=majority"
+    );
 
     app.listen(port, () => {
         console.log(`App is listening at ${port}`);
