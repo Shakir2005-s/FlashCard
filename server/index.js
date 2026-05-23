@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const Flashcard = require("./models/flashcard");
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -74,16 +75,17 @@ app.delete("/flashcards/:id", async (req, res) => {
     }
 });
 
-// Connect DB + Start server
+// Connect DB and Start server
 async function main() {
-    await mongoose.connect(
-        "mongodb+srv://flashcarduser:flashcarduser123@m0freetier.sswpcbg.mongodb.net/flashcards?retryWrites=true&w=majority"
-    );
+    try {
+        await mongoose.connect(process.env.MONGO_URI);
 
-    app.listen(port, () => {
-        console.log(`App is listening at ${port}`);
-        console.log("MongoDB connected successfully");
-    });
+        app.listen(port, () => {
+            console.log(`App is listening at ${port}`);
+            console.log("MongoDB connected successfully");
+        });
+
+    } catch (err) {
+        console.log("DB connection error:", err);
+    }
 }
-
-main().catch((err) => console.log("DB connection error:", err));
