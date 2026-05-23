@@ -2,10 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const Flashcard = require("./models/flashcard");
 const cors = require("cors");
-require("dotenv").config();
-
 const app = express();
-const port = process.env.PORT || 8080;
+const port =  8080;
 
 // Middleware
 app.use(cors());
@@ -21,10 +19,7 @@ app.post("/flashcards", async (req, res) => {
     try {
         const { question, answer } = req.body;
 
-        const newCard = await Flashcard.create({
-            question,
-            answer
-        });
+        const newCard = await Flashcard.create({ question, answer });
 
         res.json(newCard);
     } catch (err) {
@@ -41,7 +36,8 @@ app.get("/flashcards", async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
-//Update flashcard
+
+// UPDATE flashcard
 app.put("/flashcards/:id", async (req, res) => {
     try {
         const { question, answer } = req.body;
@@ -53,12 +49,12 @@ app.put("/flashcards/:id", async (req, res) => {
         );
 
         res.json(updatedCard);
-
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 });
-//Delete flashcard
+
+// DELETE flashcard
 app.delete("/flashcards/:id", async (req, res) => {
     try {
         const id = req.params.id;
@@ -69,7 +65,6 @@ app.delete("/flashcards/:id", async (req, res) => {
             message: "Deleted successfully",
             deletedCard
         });
-
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
@@ -78,7 +73,7 @@ app.delete("/flashcards/:id", async (req, res) => {
 // Connect DB and Start server
 async function main() {
     try {
-        await mongoose.connect(process.env.MONGO_URI);
+        await mongoose.connect('mongodb://127.0.0.1:27017/flashcards');
 
         app.listen(port, () => {
             console.log(`App is listening at ${port}`);
@@ -89,3 +84,5 @@ async function main() {
         console.log("DB connection error:", err);
     }
 }
+
+main();
